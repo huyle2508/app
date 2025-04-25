@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name" translatable="false">Đồ Ăn Ngon</string> <string name="login_button" translatable="false">Đăng Nhập</string>
+    <string name="signup_button" translatable="false">Đăng Ký</string>
+    <string name="add_to_cart" translatable="false">Thêm vào giỏ hàng</string>
+    <string name="quantity" translatable="false">Số lượng</string>
+    <string name="details" translatable="false">Chi tiết</string>
+    <string name="cart" translatable="false">Giỏ Hàng</string>
+    <string name="enter_code" translatable="false">Nhập mã của bạn</string>
+    <string name="apply_code" translatable="false">Xác nhận mã</string>
+    <string name="order_summary" translatable="false">Hoá đơn</string>
+    <string name="subtotal" translatable="false">Tổng cộng</string>
+    <string name="delivery" translatable="false">Vận chuyển</string>
+    <string name="tax" translatable="false">Tổng thuế</string>
+    <string name="total" translatable="false">Thành tiền</string>
+    <string name="place_order" translatable="false">Đặt hàng</string>
+    <string name="welcome" translatable="false">Chào mừng</string>
+    <string name="search_food" translatable="false">Tìm kiếm món ăn...</string>
+    <string name="best_foods" translatable="false">Món ngon nhất hôm nay</string>
+    <string name="view_all" translatable="false">XEM TẤT CẢ</string>
+    <string name="choose_category" translatable="false">Chọn danh mục</string>
+    <string name="settings" translatable="false">Cài đặt</string>
+    <string name="profile_info" translatable="false">Thông tin tài khoản</string>
+    <string name="change_password" translatable="false">Đổi mật khẩu</string>
+    <string name="order_history" translatable="false">Lịch sử mua hàng</string>
+    <string name="favorite_foods" translatable="false">Món ăn yêu thích</string>
+    <string name="current_password" translatable="false">Mật khẩu hiện tại</string>
+    <string name="new_password" translatable="false">Mật khẩu mới</string>
+    <string name="confirm_new_password" translatable="false">Xác nhận mật khẩu mới</string>
+    <string name="confirm_change_password" translatable="false">Xác nhận đổi mật khẩu</string>
+    <string name="display_name" translatable="false">Tên hiển thị</string>
+    <string name="address" translatable="false">Địa chỉ</string>
+    <string name="phone_number" translatable="false">Số điện thoại</string>
+    <string name="save_changes" translatable="false">Lưu thay đổi</string>
+    <string name="order_id_prefix" translatable="false">Mã ĐH:</string>
+    <string name="order_date_prefix" translatable="false">Ngày đặt:</string>
+    <string name="order_total_prefix" translatable="false">Tổng tiền:</string>
+    <string name="no_favorite_foods" translatable="false">Bạn chưa có món ăn yêu thích nào.</string>
+    <string name="login_prompt" translatable="false">Chưa có tài khoản? Đăng ký ngay!</string>
+    <string name="signup_prompt" translatable="false">Đã có tài khoản? Đăng nhập</string>
+    <string name="price_text" translatable="false">Giá tiền</string>
+
+
+</resources>
