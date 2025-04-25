@@ -168,25 +168,25 @@ public class DetailActivity extends BaseActivity { // Kế thừa BaseActivity
                     .load(object.getImagePath())
                     .into(binding.pic);
 
-            binding.priceTxt.setText(String.format(java.util.Locale.US, "$%.2f", object.getPrice()));
+            binding.priceTxt.setText(String.format(java.util.Locale.US, "%.3fđ", object.getPrice()));
             binding.titleTxt.setText(object.getTitle());
             binding.descriptionTxt.setText(object.getDescription());
             binding.ratingTxt.setText(String.format(java.util.Locale.US, "%.1f Rating", object.getStar()));
             binding.ratingBar.setRating((float) object.getStar());
-            binding.timeTxt.setText(String.format("%d min", object.getTimeValue())); // Hiển thị thời gian
-            binding.totalTxt.setText(String.format(java.util.Locale.US, "$%.2f", (num * object.getPrice())));
+            binding.timeTxt.setText(String.format("%d phút", object.getTimeValue())); // Hiển thị thời gian
+            binding.totalTxt.setText(String.format(java.util.Locale.US, "%.3fđ", (num * object.getPrice())));
 
             binding.plusBtn.setOnClickListener(v -> {
                 num = num + 1;
                 binding.numEdt.setText(String.valueOf(num));
-                binding.totalTxt.setText(String.format(java.util.Locale.US, "$%.2f", (num * object.getPrice())));
+                binding.totalTxt.setText(String.format(java.util.Locale.US, "%.3fđ", (num * object.getPrice())));
             });
 
             binding.minusBtn.setOnClickListener(v -> {
                 if (num > 1) {
                     num = num - 1;
                     binding.numEdt.setText(String.valueOf(num));
-                    binding.totalTxt.setText(String.format(java.util.Locale.US, "$%.2f", (num * object.getPrice())));
+                    binding.totalTxt.setText(String.format(java.util.Locale.US, "%.3fđ", (num * object.getPrice())));
                 }
             });
             // Listener cho EditText
@@ -247,7 +247,7 @@ public class DetailActivity extends BaseActivity { // Kế thừa BaseActivity
     private void updateQuantityUI() {
         if (object == null) return;
         binding.numEdt.setText(String.valueOf(num)); // Cập nhật EditText
-        binding.totalTxt.setText(String.format(java.util.Locale.US, "$%.2f", (num * object.getPrice())));
+        binding.totalTxt.setText(String.format(java.util.Locale.US, "%.3fk", (num * object.getPrice())));
         // Cần di chuyển con trỏ đến cuối khi cập nhật EditText bằng code
         binding.numEdt.setSelection(binding.numEdt.getText().length());
     }
