@@ -225,10 +225,10 @@ public class CartActivity extends BaseActivity {
         double itemTotal = Math.round(subTotal * 100.0) / 100.0;
 
         // Cập nhật UI với định dạng tiền tệ, sử dụng Locale.US để đảm bảo dấu "." là thập phân
-        binding.totalFeeTxt.setText(String.format(Locale.US, "$%.2f", itemTotal));
-        binding.taxTxt.setText(String.format(Locale.US, "$%.2f", tax));
-        binding.deliveryTxt.setText(String.format(Locale.US, "$%.2f", delivery));
-        binding.totalTxt.setText(String.format(Locale.US, "$%.2f", total));
+        binding.totalFeeTxt.setText(String.format(Locale.US, "%.3fđ", itemTotal));
+        binding.taxTxt.setText(String.format(Locale.US, "%.3fđ", tax));
+        binding.deliveryTxt.setText(String.format(Locale.US, "%.3fđ", delivery));
+        binding.totalTxt.setText(String.format(Locale.US, "%.3fđ", total));
 
         // Cập nhật trạng thái nút đặt hàng
         binding.button2.setEnabled(!managmentCart.getListCart().isEmpty());
