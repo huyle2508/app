@@ -41,7 +41,12 @@ public class BestFoodAdapter extends RecyclerView.Adapter<BestFoodAdapter.viewho
         View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_best_food, parent, false);
         return new viewholder(inflate);
     }
-
+    public void updateData(ArrayList<Foods> newItems) {
+        // Có thể thêm DiffUtil ở đây để tối ưu hơn
+        this.items.clear();
+        this.items.addAll(newItems);
+        notifyDataSetChanged(); // Hoặc sử dụng DiffUtil
+    }
     @Override
     public void onBindViewHolder(@NonNull BestFoodAdapter.viewholder holder, int position) {
         holder.titleTxt.setText(items.get(position).getTitle());

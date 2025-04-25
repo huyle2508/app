@@ -70,7 +70,18 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.viewho
             context.startActivity(intent);
         });
     }
-
+    public void updateData(ArrayList<Category> newItems) {
+        // Có thể dùng DiffUtil ở đây để tối ưu hơn
+        if (this.items != null) {
+            this.items.clear();
+            this.items.addAll(newItems);
+            notifyDataSetChanged(); // Hoặc dùng DiffUtil callback.dispatchUpdatesTo(this);
+        } else {
+            // Khởi tạo nếu items là null (ít xảy ra nếu constructor đúng)
+            this.items = new ArrayList<>(newItems);
+            notifyDataSetChanged();
+        }
+    }
     @Override
     public int getItemCount() {
         return items.size();
