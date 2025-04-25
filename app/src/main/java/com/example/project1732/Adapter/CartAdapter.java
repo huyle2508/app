@@ -67,9 +67,10 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.Viewholder> {
                 .into(holder.pic);
 
         holder.title.setText(listItemSelected.get(position).getTitle());
-        holder.feeEachItem.setText("$" + listItemSelected.get(position).getPrice());
-        holder.totalEachItem.setText(listItemSelected.get(position).getNumberInCart() + "* $"
-                + (listItemSelected.get(position).getNumberInCart() * listItemSelected.get(position).getPrice()));
+        double price = listItemSelected.get(position).getPrice();
+        holder.feeEachItem.setText(String.format("%.3fđ", price)); // Giá của 1 sản phẩm
+        holder.totalEachItem.setText(listItemSelected.get(position).getNumberInCart() + " * "
+                + String.format("%.3f đ", price)); // Số lượng × giá của 1 sản phẩm
 
         holder.numEdt.setText(String.valueOf(listItemSelected.get(position).getNumberInCart()));
 
