@@ -71,7 +71,16 @@
         app:layout_constraintEnd_toEndOf="@+id/loginPasswordEdt"
         app:layout_constraintStart_toStartOf="@+id/loginPasswordEdt"
         app:layout_constraintTop_toBottomOf="@+id/loginPasswordEdt" />
-
+    <TextView
+        android:id="@+id/forgotPasswordTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/forgot_password_link"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/loginBtn"
+        app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
     <TextView
         android:id="@+id/gotoSignupTxt"
         android:layout_width="wrap_content"

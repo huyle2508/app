@@ -2,11 +2,17 @@ package com.example.project1732.Activity; // Thay đổi package nếu cần
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 
+import com.example.project1732.R;
 import com.example.project1732.databinding.ActivityLoginBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -47,9 +53,59 @@ public class LoginActivity extends BaseActivity {
         binding.gotoSignupTxt.setOnClickListener(v -> {
             startActivity(new Intent(LoginActivity.this, SignupActivity.class));
             // Không cần finish() ở đây nếu muốn người dùng có thể quay lại
-        });
-    }
 
+        });
+        binding.forgotPasswordTxt.setOnClickListener(v -> showForgotPasswordDialog());
+    }
+    private void showForgotPasswordDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.dialog_forgot_password, null); // Tạo một layout XML riêng cho dialog
+        final EditText emailEditText = dialogView.findViewById(R.id.forgotEmailEdt); // ID của EditText trong dialog layout
+
+        builder.setView(dialogView)
+                .setTitle(R.string.forgot_password_title)
+                .setPositiveButton(R.string.send_reset_email_button, (dialog, id) -> {
+                    String email = emailEditText.getText().toString().trim();
+                    if (TextUtils.isEmpty(email)) {
+                        Toast.makeText(LoginActivity.this, R.string.enter_email_prompt, Toast.LENGTH_SHORT).show();
+                        // Có thể hiển thị lại dialog hoặc làm nổi bật EditText
+                        // showForgotPasswordDialog(); // Gọi lại để hiển thị dialog
+                        return; // Ngăn không đóng dialog nếu email trống
+                    }
+                    if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                        Toast.makeText(LoginActivity.this, R.string.invalid_email_prompt, Toast.LENGTH_SHORT).show();
+                        // showForgotPasswordDialog(); // Gọi lại để hiển thị dialog
+                        return; // Ngăn không đóng dialog nếu email không hợp lệ
+                    }
+                    sendPasswordResetEmail(email);
+                })
+                .setNegativeButton("Hủy", (dialog, id) -> dialog.dismiss());
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+    // *******************************************
+
+    // *** THÊM HÀM NÀY ĐỂ GỬI EMAIL ĐẶT LẠI ***
+    private void sendPasswordResetEmail(String email) {
+        // Có thể thêm ProgressBar ở đây
+        mAuth.sendPasswordResetEmail(email)
+                .addOnCompleteListener(task -> {
+                    // Ẩn ProgressBar
+                    if (task.isSuccessful()) {
+                        Log.d("ForgotPassword", "Email sent.");
+                        Toast.makeText(LoginActivity.this,
+                                String.format(getString(R.string.reset_email_sent_success), email),
+                                Toast.LENGTH_LONG).show();
+                    } else {
+                        Log.w("ForgotPassword", "Error sending reset email", task.getException());
+                        Toast.makeText(LoginActivity.this,
+                                String.format(getString(R.string.reset_email_sent_fail), task.getException().getMessage()),
+                                Toast.LENGTH_LONG).show();
+                    }
+                });
+    }
     private void loginUser() {
         String email = binding.loginEmailEdt.getText().toString().trim();
         String password = binding.loginPasswordEdt.getText().toString().trim();

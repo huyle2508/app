@@ -38,6 +38,14 @@
     <string name="login_prompt" translatable="false">Chưa có tài khoản? Đăng ký ngay!</string>
     <string name="signup_prompt" translatable="false">Đã có tài khoản? Đăng nhập</string>
     <string name="price_text" translatable="false">Giá tiền</string>
-
+    <string name="forgot_password_link" translatable="false">Quên mật khẩu?</string>
+    <string name="forgot_password_title" translatable="false">Đặt lại mật khẩu</string>
+    <string name="forgot_password_instructions" translatable="false">Nhập email đã đăng ký của bạn để nhận liên kết đặt lại mật khẩu.</string>
+    <string name="send_reset_email_button" translatable="false">Gửi Email</string>
+    <string name="email_hint" translatable="false">Nhập Email của bạn</string>
+    <string name="reset_email_sent_success" translatable="false">Email đặt lại mật khẩu đã được gửi tới %s. Vui lòng kiểm tra hộp thư của bạn.</string>
+    <string name="reset_email_sent_fail" translatable="false">Lỗi gửi email đặt lại mật khẩu: %s</string>
+    <string name="enter_email_prompt" translatable="false">Vui lòng nhập email</string>
+    <string name="invalid_email_prompt" translatable="false">Vui lòng nhập email hợp lệ</string>
 
 </resources>
